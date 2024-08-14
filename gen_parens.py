@@ -1,6 +1,7 @@
 from typing import List
 
 
+# not sure that backtrack is even the right name for this or what backtrack even means tbh lol
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         def backtrack(res, s="", l_rem=n, r_rem=n):
