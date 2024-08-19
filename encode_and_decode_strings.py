@@ -6,7 +6,6 @@ def encode(strs: List[str]) -> str:
 words = ["neet","code","love","you"]
 ans = encode(words)
 print(ans)
-# 4#neet5#code
 
 def decode(s: str) -> List[str]:
     ans = []
@@ -24,3 +23,20 @@ def decode(s: str) -> List[str]:
     return ans
 
 print(decode(ans))
+
+class Solution2:
+    def encode(self, strs: List[str]) -> str:
+        return "".join(f"{len(s)}#{s}" for s in strs)
+
+    def decode(self, s: str) -> List[str]:
+        ans = []
+        i = 0
+        while i < len(s):
+            j = i
+            while s[j] != "#":
+                j += 1
+            val = int(s[i:j])
+            end = j + val + 1
+            ans.append(s[j+1:end])
+            i = end
+        return ans
